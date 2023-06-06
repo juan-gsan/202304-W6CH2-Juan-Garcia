@@ -1,6 +1,6 @@
-import { Actions } from "../actions/Actions";
-import { Info } from "../info/Info";
-import { Keyboard } from "../keyboard/Keyboard";
+import { Actions } from "../../components/actions/Actions";
+import { Info } from "../../components/info/Info";
+import { Keyboard } from "../../components/keyboard/Keyboard";
 
 function App() {
   return (
