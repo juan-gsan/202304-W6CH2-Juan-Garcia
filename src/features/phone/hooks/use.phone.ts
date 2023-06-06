@@ -1,28 +1,29 @@
-import { useReducer } from "react";
-import { phoneReducer } from "../reducer/reducer";
-import * as actionCreator from "../reducer/actions.creator";
-import { PhoneStructure } from "../models/phone.structure";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../core/store/store";
+import {
+  addNumberToDisplay,
+  deleteDisplay,
+  updateCalling,
+} from "../redux/phone.slice";
 
 export function usePhone() {
-  const initialState: PhoneStructure = {
-    isCalling: false,
-    phoneNumber: "",
-  };
-
-  const [phoneState, dispatch] = useReducer(phoneReducer, initialState);
+  const phone = useSelector((state: RootState) => state.phone);
+  const dispatch: AppDispatch = useDispatch();
 
   const handleAddNumber = (item: string) => {
-    console.log(item);
-    dispatch(actionCreator.updateDisplay(item));
+    dispatch(addNumberToDisplay(item));
   };
-
-  const handleDeleteNumber = (item: string) => {
-    dispatch(actionCreator.deleteDisplay(item));
+  const handleDeleteNumber = () => {
+    dispatch(deleteDisplay());
   };
-
+  const handleIsCalling = () => {
+    dispatch(updateCalling());
+  };
   return {
-    phoneNumber: phoneState.phoneNumber,
-    handleDeleteNumber,
+    phoneNumber: phone.phoneNumber,
+    phoneIsCalling: phone.isCalling,
     handleAddNumber,
+    handleDeleteNumber,
+    handleIsCalling,
   };
 }
