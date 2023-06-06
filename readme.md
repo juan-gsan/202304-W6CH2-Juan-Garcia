@@ -1,6 +1,6 @@
-# Week 6 - Challenge 1
+# Week 6 - Challenge 2
 
-## Teléfono React + FLUX (useReducer + hook + provider)
+## Teléfono React + REDUX
 
 Aquí tienes la maquetación HTML/CSS de una aplicación, tendrás que programarla en React.
 
